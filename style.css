@@ -1,0 +1,79 @@
+/* Universal Selector */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+/* Wrapper Class */
+.wrapper{
+    height: 100vh;
+    width: 100vw;
+    /* For Making the button in center use flex/grid */
+    /* introduce flex */
+    display: flex;
+    /* horizontal */
+    justify-content: center;
+    /* vertical */
+    align-items: center;
+}
+
+/* Button Styling Configuration wiil be given in figma file(input) */
+
+.btn-pink{
+    background-color: #e84949;
+    padding:0.8rem 2.3rem;
+    /* Text color */
+    color: white;
+    font-size: 18px;
+    box-shadow: 5px 5px 7px 0px #0000003f;
+    position:relative;
+    z-index: 1;
+     /* cursor will be converted to pointer */
+     cursor: pointer;
+     /* On the spot */
+     transition-delay: 0;
+ }
+
+ /* Now use Pseudo  selector  */
+ /* eg before and after */
+ /* Before content will be before actual content */
+/* .btn-pink:before{
+    content: "ABCD ";
+} */
+
+
+ /* After content will be after actual content */
+ /* .btn-pink:after{
+    content: " ABCD";
+} */
+
+/* Color transition */
+ .btn-pink:before{
+    content: "";
+    background-color: #1f1f1f;
+    /* Set nearest position ancestor must be relative so ancestor is btn-pink so btn-pink position:relative*/
+    position:absolute;
+    /* For filling in full div give all direction 0 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* set  scale 0 for starting*/
+    transform: scaleX(0);
+    /* Scale it from left side */
+    transform-origin: left;
+    transition:all 0.8s;
+    /* now set z index */
+    z-index: -1;
+    
+
+}
+
+/* At hover the transition will be visible by setting from scale 0 to 1*/
+.btn-pink:hover::before{
+    transform: scaleX(1);
+    /* cursor will be converted to pointer */
+    cursor: pointer;
+    /* On the spot */
+    transition-delay: 0;
+}
